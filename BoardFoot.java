@@ -48,7 +48,8 @@ public final class BoardFoot {
     // Welcome message
     System.out.print("This program figures out the length of a ");
     System.out.println("wooden board that is 1 board foot in dimension. ");
-    System.out.printf("One board foot is %d inches\u00B3", VOLUME);
+    System.out.printf("One board foot is %.0f inches\u00B3", VOLUME);
+    System.out.println("");
     // Initialize Scanner for user input.
     Scanner scanner = new Scanner(System.in);
     try {
@@ -59,15 +60,15 @@ public final class BoardFoot {
       System.out.print("Enter the height [inches]: ");
       final double height = scanner.nextDouble();
       // Check if the inputs are greater than 0
-      if (width <= 0 && height <= 0) {
+      if (width <= 0 || height <= 0) {
         // If they aren't, give an error message
         // Error message for non-existent dimensions. [IN RED]
         System.out.println("\033[0;31mERROR: INPUTS MUST BE GREATER THAN 0.");
       } else {
         // Call the function to solve for length
         final double length = calculateBoardFoot(width, height);
-        // Display the length [IN BLUE]
-        System.out.printf("\033[0;33m Solved Length: %.6f", length);
+        // Display the length [IN YELLOW]
+        System.out.printf("\033[0;33mSolved Length: %.6f", length);
         System.out.println(" inches.");
       }
 
